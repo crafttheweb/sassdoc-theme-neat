@@ -1,6 +1,6 @@
 <li class="title">
   <a href="#{{ type }}">
-    <h3 class="type-heading">{{ (type + 's') }}</h3>
+    <h3 class="type-heading">{{group_name}} - {{ (type + 's') }}</h3>
   </a>
 </li>
 
