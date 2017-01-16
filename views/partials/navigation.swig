@@ -1,14 +1,28 @@
 
 <nav class="side-nav">
-  <ul class="social">
-    <li><a class="github" href="{{ view.links.github }}">GitHub / Install</a></li>
-    <li><a class="twitter" href="{{ view.links.twitter }}">Twitter</a></li>
-    <li><a class="gitter" href="{{ view.links.gitter }}">Gitter</a></li>
-  </ul>
+  {% if view.links %}
+        <ul class="social">
+            {% if view.links.github %}
+                <li><a class="github" href="{{ view.links.github }}">GitHub / Install</a></li>
+            {% endif %}
+            {% if view.links.twitter %}
+                <li><a class="twitter" href="{{ view.links.twitter }}">Twitter</a></li>
+            {% endif %}
+            {% if view.links.gitter %}
+                <li><a class="gitter" href="{{ view.links.gitter }}">Gitter</a></li>
+            {% endif %}
+        </ul>
+    {% endif %}
 
-  <a class="logo-container" href="{{ view.library.homepage }}">
-    <img alt="{{ view.library.name }} Logo" class="logo" src="{{ view.logoPath }}">
-  </a>
+    {% if view.library.homepage %}
+        <a class="logo-container" href="{{ view.library.homepage }}">
+            {% if view.logoPath %}
+                <img alt="{{ view.library.name }} Logo" class="logo" src="{{ view.logoPath }}">
+            {% elseif view.library.name %}
+                {{ view.library.name }}
+            {% endif %}
+        </a>
+    {% endif %}
 
   <ul class="list">
     {% for group_name, group in data.byGroupAndType %}
