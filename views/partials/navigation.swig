@@ -26,6 +26,7 @@
 
   <ul class="list">
     {% for group_name, group in data.byGroupAndType %}
+      <li><h2>{{group_name}}</h2></li>
       {% for type, items in group %}
         {% if type == "mixin" %}
           {% include "type_list.swig" %}
